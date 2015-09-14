@@ -1,0 +1,83 @@
+/*
+Dice Roller v.1.00
+Created by Brian Bui
+Created:  9/14/2015
+Last Updated:  9/14/2015
+*/
+#include <iostream>
+#include <ctime>
+#include <cstdlib>     /* srand, rand */
+#include <string>
+using namespace std;
+
+int main()
+{
+	srand(time(NULL)); // Seed the randomizer
+
+	// Initialize variables
+	int dice4,
+		dice6,
+		dice8,
+		dice10,
+		dice12,
+		dice20;
+
+		// Initialize RNG
+	int d4roll,
+		d6roll,
+		d8roll,
+		d10roll,
+		d12roll,
+		d20roll;
+
+	// Final results
+	int d4result,
+		d6result,
+		d8result,
+		d10result,
+		d12result,
+		d20result;
+
+	//  Create RNG
+	d4roll = rand() % 4 + 1; //  Number 1-4 
+	d6roll = rand() % 6 + 1; //  Number 1-6
+	d8roll = rand() % 8 + 1; //  Number 1-8
+	d10roll = rand() % 10 + 1; //  Number  1-10
+	d12roll = rand() % 12 + 1; //  Number 1-12
+	d20roll = rand() % 20 + 1; //  Number 1-20
+
+	// Prompt user for amount of dice rolled.
+	cout << "How many d4 do you want to roll? " << endl;
+	cin >> dice4;
+	cout << "How many d6 do you want to roll? " << endl;
+	cin >> dice6;
+	cout << "How many d8 do you want to roll? " << endl;
+	cin >> dice8;
+	cout << "How many d10 do you want to roll? " << endl;
+	cin >> dice10;
+	cout << "How many d12 do you want to roll? " << endl;
+	cin >> dice12;
+	cout << "How many d20 do you want to roll? " << endl;
+	cin >> dice20;
+
+	//  Calculate results
+	d4result = (dice4 * d4roll);
+	d6result = (dice6 * d6roll);
+	d8result = (dice8 * d8roll);
+	d10result = (dice10 * d10roll);
+	d12result = (dice12 * d12roll);
+	d20result = (dice20 * d20roll);
+
+	//  Display and calculate results
+	cout << "You rolled: " << dice4 << "d4" << " for a total of: " << d4result << endl;
+	cout << "You rolled: " << dice6 << "d6" << " for a total of: " << d6result << endl;
+	cout << "You rolled: " << dice8 << "d8" << " for a total of: " << d8result << endl;
+	cout << "You rolled: " << dice10 << "d10" << " for a total of: " << d10result << endl;
+	cout << "You rolled: " << dice12 << "d12" << " for a total of: " << d12result << endl;
+	cout << "You rolled: " << dice20 << "d20" << " for a total of: " << d20result << endl;
+
+
+	system("pause");
+	return 0;
+
+}
