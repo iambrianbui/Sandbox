@@ -1,0 +1,32 @@
+/*  Taking damage for a game.
+Created by:  Brian Bui
+Started:  9/15/2015
+Last edited:  9/15/2015
+*/
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+	int dice8, // monster damage
+		dice20; // monster hit
+	const int hp = 10; // hp
+
+	srand(time(NULL));
+	dice8 = rand() % 8 + 1;
+	dice20 = rand() % 20 + 1;
+
+	if (dice20 > 10) // if you roll morethan a 10 then:
+	{
+		cout << "You were hit for: " << dice8 << " damage! \nYou currently have: " << (hp - dice8) << "HP remaining. " << endl;  // generic message
+	}
+	else
+	{
+		cout << "The monster missed!" << endl; //miss
+	}
+
+	system("pause");
+	return 0;
+}
