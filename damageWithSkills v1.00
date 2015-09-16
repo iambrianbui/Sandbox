@@ -1,0 +1,87 @@
+/*Taking damage program, but with additive skills (if statement)
+v1.00
+Created by:  Brian Bui
+Created:  9/16/2015
+Last Updated:  9/16/2015*/
+
+//sonata in d minor - vivaldi
+
+#include<iostream>
+#include<ctime>
+#include<cstdlib>
+using namespace std;
+
+int main()
+{
+	// Initialize variables
+	int skill = 0,
+		sdam,  // slash
+		fdam,  // fireball
+		d20;  // hit dice
+	const int monsterHP = 10; // monsterhp
+
+	// establish RNG
+	srand(time(NULL));
+	sdam = rand() % 8 + 5;  // slash damage 4-12 damage - 3/8 to instakill
+	fdam = rand() % 12 + 4;  // fireball damage 3-15 damage - 1/2 to instakill
+	d20 = rand() % 20 + 1;  //  accuracy
+
+
+	cout << "You are now fighting a slime!" << endl;
+	system("pause");
+	cout << "What skill would you like to use?" << endl <<  //  Prompt user for skill
+		"1 = Sword Slash" << endl <<
+		"2 = Fireball" << endl;
+	cin >> skill;
+//  If the player chooses "Sword Slash"
+	if (skill <= 1) // if the player chooses "Sword Slash"
+	{
+		cout << "You ready your sword... " << endl;
+		system("pause");
+//  Find "Sword Slash" hitrate
+		if (d20 + 3 >= 10)  //  65% hit rate
+		{
+			cout << "You hit the slime for " << sdam << " damage!" << endl;
+			system("pause");
+			//  Check if player killed the slime
+				if (sdam >= monsterHP)
+				{
+					cout << "The slime is cut in half!" << endl;
+				}
+				else
+					cout << "The slime has " << monsterHP - sdam << " HP remaining!" << endl;
+		}
+		// player has missed
+		else
+		{
+			cout << "You missed!" << endl;
+		}
+
+	}
+//  Player has chose "Fireball"
+	else 
+	{
+			cout << "You chant your fireball spell..." << endl;
+			system("pause");
+			//  Find "Fireball" hitrate
+			if (d20 + 1 >= 10)  //  55% hit rate
+			{
+				cout << "You hit the slime for " << fdam << " damage!" << endl;
+				system("pause");
+				//  Check if the player killed the slime
+				if (fdam >= monsterHP)
+				{
+					cout << "The slime is immolated, set ablaze before you!" << endl;
+				}
+				else
+					cout << "The slime is hurt, but still alive!" << endl;
+			}
+			//  The player has missed
+			else
+				cout << "You missed the slime!" << endl;
+	}
+
+	system("pause");
+
+	return 0;
+}
